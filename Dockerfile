@@ -9,7 +9,7 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 RUN pip install --requirement /tmp/requirements.txt
-ARG DEV=true
+ARG DEV=false
 RUN apk add --no-cache icu-libs
 RUN apk add --no-cache icu-data-full
 RUN python -m venv /py && \
