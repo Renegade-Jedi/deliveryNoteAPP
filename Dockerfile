@@ -8,6 +8,7 @@ COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
+RUN apk update && apk upgrade --no-cache
 RUN pip install --requirement /tmp/requirements.txt
 ARG DEV=false
 RUN apk add --no-cache icu-libs
