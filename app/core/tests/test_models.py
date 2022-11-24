@@ -53,3 +53,11 @@ class ModelTests(TestCase):
             self.assertTrue(user.is_superuser)
             self.assertTrue(user.is_staff)
 
+    def test_create_document(self):
+            """Test creating a document."""
+            documnet = models.Document.objects.create(
+                name = "Test document",
+                documentData = "testt document data",
+                documentDescription = "test document description"
+            )
+            self.assertEqual(str(documnet), documnet.name)
