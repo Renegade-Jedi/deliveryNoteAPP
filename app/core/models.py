@@ -1,6 +1,7 @@
 """
 Database models.
 """
+from django.db import models
 import uuid
 import os
 from django.conf import settings
@@ -44,3 +45,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+class Document(models.Model):
+    """Modle for extracted document"""
+
+    name = models.CharField(max_length=255)
+    documentData = models.TextField(blank=True)
+    documentDescription = models.TextField(max_length=255)
+
+    def __str__(self):
+        return self.name
